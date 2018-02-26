@@ -8,7 +8,28 @@
     <body>
         <h1>Todo List</h1>
 
-        <button>Display Todos</button>
+        
+        <div>
+            <button onclick="handlers.displayTodos()">Display Todos</button>
+            <button onclick="handlers.toggleAll()">Toggle All</button>
+        </div>
+
+        <div>
+            <input id = "addTodoTextInput" type="text">
+            <button onclick="handlers.addTodo()">Add todo</button>
+        </div>
+
+        <div>
+            <input type="number" id="changeTodoPosition">
+            <input type="text" id="changeTodoTextInput">
+            <button onclick="handlers.changeTodo()">Change Todo</button>
+        </div>
+
+        <div>
+            <input type="number" id="deleteTodoPosition">
+            <button onclick="handlers.deleteTodo()">Delete</button>
+        </div>
+        
 
 
     </body>

@@ -25,7 +25,7 @@ var todoList = {
         this.displayTodos();
     },
     deleteTodo: function (position) {
-        this.todos.spllice[position, 1];
+        this.todos.splice(position, 1);
         this.displayTodos();
     },
     toggleCompleted: function (position) {
@@ -57,3 +57,33 @@ var todoList = {
         this.displayTodos();
     }
 };
+
+// These actions will handle onclick actions on the DOM
+var handlers = {
+    displayTodos: function () {
+        todoList.displayTodos();
+    },
+    toggleAll: function () {
+        todoList.toggleAll();
+    },
+    addTodo: function () {
+        var addTodoTextInput = document.getElementById('addTodoTextInput');
+        todoList.addTodo(addTodoTextInput.value);
+        addTodoTextInput.value = '';
+    },
+    changeTodo: function () {
+        var changeTodoPosition = document.getElementById('changeTodoPosition');
+        var changeTodoTextInput = document.getElementById('changeTodoTextInput');
+        
+        todoList.changeTodo(changeTodoPosition.valueAsNumber, changeTodoTextInput.value);
+        changeTodoTextInput.value = '';
+        changeTodoPosition.value = '';
+
+    },
+    deleteTodo: function () {
+        var deleteTodoPosition = document.getElementById('deleteTodoPosition');
+
+        todoList.deleteTodo(deleteTodoPosition.valueAsNumber, 1);
+        deleteTodoPosition = '';
+    }
+}
