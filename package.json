@@ -1,0 +1,17 @@
+{
+  "name": "todo-vanillajs",
+  "version": "1.0.0",
+  "description": "Vanilla JS To-Do list ",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "nodemon": "^1.15.1"
+  }
+}
