@@ -95,10 +95,29 @@ var view = {
                 todoTextWithCompletion = '( ) ' + todo.todoText
             }
 
+            // This works because we're inside of a for loop, which i = is equal to each item individually and loooped
+            todoLi.id = i;
             todoLi.textContent = todoTextWithCompletion;
+            todoLi.appendChild(this.createDeleteButton());
             todosUl.appendChild(todoLi);
 
         }
 
+    },
+    createDeleteButton: function () {
+        var deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.className = 'deleteButton';
+        return deleteButton;
     }
-}
+};
+
+var todosUl = document.querySelector('ul');
+
+todosUl.addEventListener('click', function (event) {
+    console.log(event);
+});
+
+
+
+
