@@ -36,21 +36,21 @@ var todoList = {
     toggleAll: function () {
         var totalTodos = this.todos.length;
         var completedTodos = 0;
-        
+
         // Get number of completed todos
         for (var i = 0; i < totalTodos; i++) {
             if (this.todos[i].completed === true) {
                 completedTodos++;
             }
         }
-        
+
         // Case 1: If everything's true, make everything false.
         if (completedTodos === totalTodos) {
-            for(var i = 0; i < totalTodos; i++) {
+            for (var i = 0; i < totalTodos; i++) {
                 this.todos[i].completed = false;
-            } 
+            }
         } else {
-            for(var i = 0; i < totalTodos; i++) {
+            for (var i = 0; i < totalTodos; i++) {
                 this.todos[i].completed = true;
             }
         }
@@ -74,7 +74,7 @@ var handlers = {
     changeTodo: function () {
         var changeTodoPosition = document.getElementById('changeTodoPosition');
         var changeTodoTextInput = document.getElementById('changeTodoTextInput');
-        
+
         todoList.changeTodo(changeTodoPosition.valueAsNumber, changeTodoTextInput.value);
         changeTodoTextInput.value = '';
         changeTodoPosition.value = '';
@@ -85,5 +85,27 @@ var handlers = {
 
         todoList.deleteTodo(deleteTodoPosition.valueAsNumber, 1);
         deleteTodoPosition = '';
+    },
+    toggleCompleted: function () {
+        var toggleCompletedPosition = document.getElementById('toggleCompletedPosition');
+
+        todoList.toggleCompleted(toggleCompletedPosition.valueAsNumber, 1);
+        toggleCompletedPosition = '';
+    }
+};
+
+var view = {
+    displayTodos: function () {
+        var todosUl = document.querySelector('ul');
+        todosUl.innerHTML = ''
+
+        // This loop will display however many Todos there are. If there is none, todos.length will be 0.
+        for (var i = 0; i < todoList.todos.length; i++) {
+            var todoLi = document.createElement('li');
+            todoLi.textContent = todoList.todos[i].todoText;
+            todoLi.appendChild(todoLi);
+
+        }
+
     }
 }
